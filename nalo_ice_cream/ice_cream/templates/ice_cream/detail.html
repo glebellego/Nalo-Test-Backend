@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+    <style>
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<html>
+    <body>
+        <h1>Command n° {{ command.pk }}</h1>
+        <ul>
+            <li>Command code : <b>{{command.code}}</b><br></li>
+            <li>Price : {{command.price}} <b>€</b></li>
+        </ul> 
+        <a href="{% url 'ice_cream:index' %}">Menu</a>
+
+
+        <h2>The ice cream should probably look like this :</h2><br>
+        {% for scoop in scoops %}
+        <img src="{% static scoop.img_path %}" alt={{scoop.name}}/ style="border-radius: 50%" width=200 height=200 class='center'><br>
+        {% endfor %}
+        <img src="{% static 'ice_cream/cone.png' %}" alt='cone' class='center'/><br>
+    </body>
+</html>

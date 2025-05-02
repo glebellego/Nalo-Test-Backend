@@ -1,0 +1,15 @@
+{% load static %}
+<html><body>
+<ul>
+    <li><a href="{% url 'ice_cream:new' %}">New ice cream</a></li>
+    <li>
+    	<form action="{% url 'ice_cream:detail' %}" method="post">
+            {% csrf_token %}
+    		<label>Get your ice cream</label>
+    		<input type="text" id="command_code" name="command_code">
+    		<input type="submit" value="Get">
+            {% if error_message %}<label style="color: red">{{ error_message }}</label>{% endif %}
+    	</form>
+    </li>
+</ul>
+</body></html>

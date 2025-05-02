@@ -1,3 +1,21 @@
+# Installation
+
+```
+virtualenv venv
+source venv/bin/activate
+
+pip install -r requirement.txt
+
+cd nalo_ice_cream
+
+python manage.py migrate
+
+python manage.py runserver
+```
+
+Une fois le serveur lancé, l'automate est accessible à cette URL : http://127.0.0.1:8000/ice_cream/
+Le panneau d'administration est à cet URL : http://127.0.0.1:8000/ice_cream/admin
+
 # Nalo lance le 1er glacier automate au monde !!
 
 Tu es un nouveau développeur dans l'équipe Nalo, et ta première tâche consiste à développer le nouvel automate de Nalo. 

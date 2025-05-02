@@ -1,0 +1,29 @@
+{% load static %}
+
+<html><body>
+<form action="{% url 'ice_cream:create' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>Create a new ice cream</h1></legend>
+    <h2>Flavours</h2>
+    {% if error_message %}<label style="color: red">{{ error_message }}</label>{% endif %}
+    <ul>
+        {% for stock in stocks %}
+        <li>
+            <label><b>{{stock.flavour.name}}</b></label>
+            {% if stock.amount <= 0 %}
+            <label style="color: red"><b>OUT OF STOCK</b></label>
+            {% endif %}
+            <br>
+            <img src="{% static stock.flavour.img_path %}" alt={{stock.flavour.name}} width=200 height=200/>
+            <input type="number" id={{stock.flavour.name}} value=0 name={{stock.flavour.name}} min="0" max={{stock.amount}} {% if stock.amount <= 0 %}disabled{% endif %}>
+        </li>
+        {% endfor %}
+    </ul>
+</fieldset>
+<input type="submit" value="Create">
+</form>
+
+<a href="{% url 'ice_cream:index' %}">Menu</a>
+<html><body>
+

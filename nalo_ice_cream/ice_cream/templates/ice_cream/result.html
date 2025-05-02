@@ -1,0 +1,8 @@
+<html><body>
+<h1>Command n° {{ command.pk }}</h1>
+<ul>
+	<li>Command code : <b>{{command.code}}</b><br></li>
+	<li>Price : {{command.price}} <b>€</b></li>
+</ul> 
+<a href="{% url 'ice_cream:index' %}">Menu</a>
+<html><body>
